@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        count:2,
+        count:0,
         name:'azhar',
         imgUrl:'https://picsum.photos/200',
         tag: ['tag1', 'tag2','tag3']
@@ -18,12 +18,16 @@ class Counter extends Component {
         return <ul>{ this.state.tag.map(tag=> <li key={tag}>{tag}</li> )}</ul>;
     }
 
+    handleIncrement = () => {
+        this.setState({count:this.state.count + 1})
+    }
+
     render() { 
         return <React.Fragment>
             <h1 style={{ fontSize:30 }}>Hello {this.state.name}</h1><br/>
             <img src={this.state.imgUrl} alt="random-pic" />
             <span className={ this.getBadgeClass() } style={this.styles}>Count is {this.formatCount()}</span>
-            <button className='badge btn-primary m-2'>Increment</button><br />
+            <button onClick={this.handleIncrement} className='badge btn-primary m-2' >Increment</button><br />
             <div>
                 {this.state.count ===0 && "please create tag!"}
                 {this.renderTags()}
