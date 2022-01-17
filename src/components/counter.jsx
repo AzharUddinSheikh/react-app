@@ -18,7 +18,8 @@ class Counter extends Component {
         return <ul>{ this.state.tag.map(tag=> <li key={tag}>{tag}</li> )}</ul>;
     }
 
-    handleIncrement = () => {
+    handleIncrement = (product) => {
+        console.log(product)
         this.setState({count:this.state.count + 1})
     }
 
@@ -27,7 +28,7 @@ class Counter extends Component {
             <h1 style={{ fontSize:30 }}>Hello {this.state.name}</h1><br/>
             <img src={this.state.imgUrl} alt="random-pic" />
             <span className={ this.getBadgeClass() } style={this.styles}>Count is {this.formatCount()}</span>
-            <button onClick={this.handleIncrement} className='badge btn-primary m-2' >Increment</button><br />
+            <button onClick={() => this.handleIncrement({id:1}) } className='badge btn-primary m-2' >Increment</button><br />
             <div>
                 {this.state.count ===0 && "please create tag!"}
                 {this.renderTags()}
