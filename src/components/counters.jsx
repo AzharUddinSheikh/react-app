@@ -13,7 +13,7 @@ class Counters extends Component {
     render() { 
         return (
             <div>
-                {this.state.counter.map(counter=><Counter key={counter.id} /> )}
+                {this.state.counter.map(counter=><Counter key={counter.id} value={counter.value} />)}
             </div>
         );
     }
