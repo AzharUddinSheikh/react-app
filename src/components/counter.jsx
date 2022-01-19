@@ -19,12 +19,13 @@ class Counter extends Component {
     }
 
     handleIncrement = (product) => {
-        this.setState({count:this.state.value + 1})
+        this.setState({value:this.state.value + 1})
     }
 
     render() { 
         return <React.Fragment>
             <h1 style={{ fontSize:30 }}>Hello {this.state.name}</h1><br/>
+            {this.props.children}
             <img src={this.state.imgUrl} alt="random-pic" />
             <span className={ this.getBadgeClass() } style={this.styles}>Count is {this.formatCount()}</span>
             <button onClick={() => this.handleIncrement({id:1}) } className='badge btn-primary m-2' >Increment</button><br />
