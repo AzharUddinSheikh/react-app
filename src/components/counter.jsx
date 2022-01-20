@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
     state = {
-        value:this.props.value,
+        value:this.props.counter.value,
         name:'azhar',
         imgUrl:'https://picsum.photos/200',
         tag: ['tag1', 'tag2','tag3']
@@ -29,7 +29,7 @@ class Counter extends Component {
             <img src={this.state.imgUrl} alt="random-pic" />
             <span className={ this.getBadgeClass() } style={this.styles}>Count is {this.formatCount()}</span>
             <button onClick={() => this.handleIncrement({id:1}) } className='badge btn-primary m-2' >Increment</button><br />
-            <button onClick={this.props.onDelete} className="btn btn-danger btn-sm m-2">Delete</button>
+            <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-2">Delete</button>
             <div>
                 {this.state.value ===0 && "please create tag!"}
                 {this.renderTags()}
