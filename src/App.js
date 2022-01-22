@@ -13,6 +13,16 @@ class App extends Component {
     ]
   }
 
+  handleDecrement = (counter) => {
+    let newCounter = this.state.counter.map(c => {
+        if (c === counter) {
+            c.value -= 1;
+        }
+        return c
+    })
+    this.setState({counter:newCounter})
+  }
+
   handleIncrement = (counter) => {
       let newCounter = this.state.counter.map(c => {
           if (c === counter) {
@@ -45,6 +55,7 @@ class App extends Component {
           counters={this.state.counter}
           onDelete={this.handleDelete}
           onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
           onReset={this.handleReset}
           length={this.state.counter.length}
         />
